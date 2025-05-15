@@ -1,0 +1,22 @@
+<% if (message) { %>
+  <p style="color: green;"><%= message %></p>
+<% } %>
+
+<h1>Products</h1>
+
+<div style="display: flex; flex-wrap: wrap;">
+  <% products.forEach(product => { %>
+    <div style="border: 1px solid #ccc; margin: 10px; padding: 10px; width: 200px;">
+      <img src="<%= product.image %>" alt="<%= product.name %>" style="width: 100%; height: auto;" />
+      <h2><%= product.name %></h2>
+      <p><%= product.description %></p>
+      <p><strong>In stock:</strong> <%= product.quantity %></p>
+      <form method="POST" action="/add-to-cart">
+        <input type="hidden" name="productId" value="<%= product.id %>" />
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+  <% }); %>
+</div>
+
+<a href="/cart">Go to Cart</a>

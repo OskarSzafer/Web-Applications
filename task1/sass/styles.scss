@@ -1,0 +1,262 @@
+$primary-font-size: 16px;
+$title-font-size: $primary-font-size * 2;
+$section-title-font-size: $primary-font-size * 1.5;
+$box-padding: 20px;
+$border-radius: 0px;
+$button-border-radius: 5px; // Added new variable for the menu toggle button's border radius
+$footer-height: 50px;
+$border-thickness: 1px;
+$border-style: solid black;
+
+// Breakpoints
+$breakpoint-small: 600px;
+$breakpoint-medium: 1024px;
+
+// Grid variables
+$grid-columns: 12;
+$grid-gap: 20px;
+
+// Clearfix mixin
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Grid container
+.grid-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $grid-gap;
+    box-sizing: border-box;
+}
+
+// Row
+.row {
+    margin: 0 -#{$grid-gap / 2};
+    @include clearfix;
+}
+
+// Column base styles
+[class^="col-"] {
+    float: left;
+    padding: 0 ($grid-gap / 2);
+    box-sizing: border-box;
+    margin-bottom: $grid-gap;
+}
+
+// Generate column classes
+@for $i from 1 through $grid-columns {
+    .col-#{$i} {
+        width: ($i / $grid-columns) * 100%;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: $primary-font-size;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+header {
+    padding: 20px 0;
+    
+        .header-container {
+            display: flex;
+
+            .names {
+                display: flex;
+                align-items: center;
+
+                .logo {
+                    font-size: 48px;
+                    font-weight: bold;
+                    margin-left: 20px;
+                    font-family: 'Allura', cursive;
+                }
+
+                .site-title {
+                    font-size: $title-font-size;
+                    margin: 0;
+                    margin-left: 20px;
+                    font-family: 'Times New Roman', Times, serif;
+                }
+            }
+            
+            nav {
+                margin-left: auto;
+                margin-right: 20px;
+                padding: 10px;
+                ul {
+                    display: flex;
+                    justify-content: flex-end;
+                    list-style: none;
+                    gap: 15px;
+                    padding: 0;
+                    margin: 0;
+                    
+                    li {
+                        display: inline;
+                        
+                        a {
+                            text-decoration: none;
+                            color: #333;
+                            font-size: $primary-font-size;
+                            font-family: 'Times New Roman', Times, serif;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-toggle {
+            display: none; // Hidden by default for large screens
+            background: none;
+            border: $border-thickness $border-style;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #e0e4cc;
+            text-align: center;
+            height: 40px;
+            width: 40px;
+            box-sizing: border-box;
+            border-radius: $button-border-radius; // Using the new variable for rounded corners
+            padding: 0;
+            line-height: 40px;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+}
+
+main {
+    flex: 1;
+    padding: 40px 0;
+    
+    .content {
+        @extend .row;
+        display: flex;
+        flex-wrap: wrap;
+        
+        // Make columns equal height
+        [class^="col-"] {
+            display: flex;
+            margin-bottom: $grid-gap;
+        }
+        
+        .box {
+            display: flex;
+            flex-direction: column;
+            width: 100%; // Make sure box takes full width of column
+            align-items: flex-end;
+            justify-content: flex-start;
+            border-radius: $border-radius;
+            background-color: #e0e4cc;
+            box-sizing: border-box;
+            position: relative;
+            border: $border-thickness $border-style;
+            padding: 0; // No padding to keep title at the edge
+        }
+        
+        // Ensure the title stays at the top-right corner
+        .box h2 {
+            font-size: $section-title-font-size;
+            padding: 10px;
+            border-radius: $border-radius;
+            display: inline-block;
+            min-width: 180px;
+            margin: 0;
+            align-self: flex-end;
+            background-color: inherit;
+            text-align: center;
+            border-bottom: $border-thickness $border-style;
+            border-left: $border-thickness $border-style;
+        }
+        
+        // New class for text content with left/right margins
+        .box-content {
+            padding: 0 20px; // Add space only on left and right
+            width: 100%;
+            box-sizing: border-box;
+            flex-grow: 1; // Allow content to expand and fill available space
+        }
+        
+        .lorem h2 { background-color: #8dd3c7; }
+        .ipsum h2 { background-color: #ffb347; }
+        .dolor h2 { background-color: #ff6961; }
+    }
+}
+
+footer {
+    height: $footer-height;
+    background-color: #e0e4cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    //position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: $border-thickness $border-style;
+    font-size: 10px;
+}
+
+// Medium devices (tablets, less than 1024px)
+@media (max-width: $breakpoint-medium) {
+    .col-md-6 {
+        width: 50%;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+// Small devices (phones, less than 600px)
+@media (max-width: $breakpoint-small) {
+    header {
+        .site-title {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: block; // Show menu toggle button
+        }
+        
+        nav {
+            display: none; // Hide navigation by default
+            width: 100%;
+            margin-top: 15px;
+            
+            &.active {
+                display: block; // Show when active class is added via JavaScript
+            }
+            
+            ul {
+                flex-direction: column;
+                padding: 10px 0;
+                
+                li {
+                    margin: 5px 0;
+                    
+                    a {
+                        display: block;
+                        padding: 8px 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    .col-sm-12 {
+        width: 100%;
+    }
+}

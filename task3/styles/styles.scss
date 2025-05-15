@@ -1,0 +1,73 @@
+@use 'sass:color';
+
+// Dark Mode Variables
+$primary-color: #9b7bff; // Slightly brighter for contrast
+$secondary-color: #1e1e2f; // Dark background
+$text-color: #f5f5f5; // Light text
+$card-bg: #2b2b3d; // Slightly lighter than background for cards
+$border-radius: 8px;
+$transition-speed: 0.3s;
+
+// Global Styles
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $secondary-color;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+
+  &.loading {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// Left column container (Search, Filter, List)
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+// ----------- COMPONENTS STYLES ----------- //
+button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background $transition-speed;
+  
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: 10%);
+    }
+  }
+  
+  input, select, textarea {
+    background-color: #3a3a4f;
+    color: $text-color;
+    border: 1px solid #555;
+    border-radius: $border-radius;
+    padding: 0.5rem;
+  }
+  

@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "The Witcher 3",
+      "description": "A story-driven open world RPG set in a visually stunning fantasy universe.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Minecraft",
+      "description": "A sandbox game where you can build and explore infinite worlds.",
+      "image": "https://upload.wikimedia.org/wikipedia/en/b/b6/Minecraft_2024_cover_art.png",
+      "rating": 4
+    }
+  ]
+  

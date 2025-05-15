@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+.grid-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.row, main .content {
+  margin: 0 -10px;
+}
+.row::after, main .content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class^=col-] {
+  float: left;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.col-1 {
+  width: 8.3333333333%;
+}
+
+.col-2 {
+  width: 16.6666666667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333333%;
+}
+
+.col-5 {
+  width: 41.6666666667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.3333333333%;
+}
+
+.col-8 {
+  width: 66.6666666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.3333333333%;
+}
+
+.col-11 {
+  width: 91.6666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 20px 0;
+}
+header .header-container {
+  display: flex;
+}
+header .header-container .names {
+  display: flex;
+  align-items: center;
+}
+header .header-container .names .logo {
+  font-size: 48px;
+  font-weight: bold;
+  margin-left: 20px;
+  font-family: "Allura", cursive;
+}
+header .header-container .names .site-title {
+  font-size: 32px;
+  margin: 0;
+  margin-left: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
+header .header-container nav {
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 10px;
+}
+header .header-container nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+header .header-container nav ul li {
+  display: inline;
+}
+header .header-container nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+}
+header .menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid black;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #e0e4cc;
+  text-align: center;
+  height: 40px;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 0;
+  line-height: 40px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+main {
+  flex: 1;
+  padding: 40px 0;
+}
+main .content {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .content [class^=col-] {
+  display: flex;
+  margin-bottom: 20px;
+}
+main .content .box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-radius: 0px;
+  background-color: #e0e4cc;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid black;
+  padding: 0;
+}
+main .content .box h2 {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 0px;
+  display: inline-block;
+  min-width: 180px;
+  margin: 0;
+  align-self: flex-end;
+  background-color: inherit;
+  text-align: center;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+main .content .box-content {
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+main .content .lorem h2 {
+  background-color: #8dd3c7;
+}
+main .content .ipsum h2 {
+  background-color: #ffb347;
+}
+main .content .dolor h2 {
+  background-color: #ff6961;
+}
+
+footer {
+  height: 50px;
+  background-color: #e0e4cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid black;
+  font-size: 10px;
+}
+
+@media (max-width: 1024px) {
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  header .site-title {
+    display: none;
+  }
+  header .menu-toggle {
+    display: block;
+  }
+  header nav {
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+  }
+  header nav.active {
+    display: block;
+  }
+  header nav ul {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  header nav ul li {
+    margin: 5px 0;
+  }
+  header nav ul li a {
+    display: block;
+    padding: 8px 0;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,27 @@
+<div class="page-title">
+  <h1>Welcome to the Online Store</h1>
+</div>
+
+<a href="/cart" class="cart-button">🛒 Shopping Cart</a>
+
+<% if (message) { %>
+  <div style="color: green; font-weight: bold; margin-bottom: 20px;">
+    <%= message %>
+  </div>
+<% } %>
+
+<div class="product-list">
+  <% products.forEach(product => { %>
+    <div class="product-card">
+        <img src="<%= product.image %>" alt="<%= product.name %>" style="width: 100%; height: auto; border-radius: 4px;" />
+        <h2 style="margin: 10px 0 5px;"><%= product.name %></h2>
+        <p><%= product.description %></p>
+        <p><strong>Price:</strong> $<%= product.price.toFixed(2) %></p>
+        <p><strong>In stock:</strong> <%= product.quantity %></p>
+        <form action="/add-to-cart" method="POST">
+          <input type="hidden" name="productId" value="<%= product.id %>">
+          <button type="submit" style="padding: 5px 10px;">Add to Cart</button>
+        </form>
+      </div>      
+  <% }); %>
+</div>

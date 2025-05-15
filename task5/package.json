@@ -1,0 +1,26 @@
+{
+  "name": "task5",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "watch:sass": "sass public/styles.scss public/styles.css --watch",
+    "start": "node app.js",
+    "dev": "concurrently \"npm run watch:sass\" \"npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "sass": "^1.87.0"
+  }
+}

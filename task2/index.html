@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Collection</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    table {
+      margin-top: 10px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    input[type="text"] {
+      width: 90%;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to my book collection</h1>
+  <button onclick="addNewBook()">Add new book</button>
+  <table id="bookTable">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Book rows will go here -->
+    </tbody>
+  </table>
+
+  <script>
+    function addNewBook() {
+      const table = document.getElementById("bookTable").getElementsByTagName('tbody')[0];
+  
+      const newRow = document.createElement("tr");
+  
+      const authorCell = document.createElement("td");
+      const titleCell = document.createElement("td");
+      const actionsCell = document.createElement("td");
+  
+      const authorInput = document.createElement("input");
+      authorInput.type = "text";
+      authorCell.appendChild(authorInput);
+  
+      const titleInput = document.createElement("input");
+      titleInput.type = "text";
+      titleCell.appendChild(titleInput);
+  
+      const saveBtn = document.createElement("button");
+      saveBtn.textContent = "Save";
+      saveBtn.onclick = function () {
+        const authorValue = authorInput.value;
+        const titleValue = titleInput.value;
+  
+        authorCell.textContent = authorValue;
+        titleCell.textContent = titleValue;
+  
+        actionsCell.innerHTML = '';
+  
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.onclick = function () {
+          const newAuthorInput = document.createElement("input");
+          newAuthorInput.type = "text";
+          newAuthorInput.value = authorValue;
+  
+          const newTitleInput = document.createElement("input");
+          newTitleInput.type = "text";
+          newTitleInput.value = titleValue;
+  
+          authorCell.innerHTML = '';
+          titleCell.innerHTML = '';
+          authorCell.appendChild(newAuthorInput);
+          titleCell.appendChild(newTitleInput);
+  
+          actionsCell.innerHTML = '';
+          actionsCell.appendChild(saveBtn);
+          actionsCell.appendChild(removeBtn);
+        };
+  
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.onclick = function () {
+          table.removeChild(newRow);
+        };
+  
+        actionsCell.appendChild(editBtn);
+        actionsCell.appendChild(removeBtn);
+      };
+  
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "Remove";
+      removeBtn.onclick = function () {
+        table.removeChild(newRow);
+      };
+  
+      actionsCell.appendChild(saveBtn);
+      actionsCell.appendChild(removeBtn);
+  
+      newRow.appendChild(authorCell);
+      newRow.appendChild(titleCell);
+      newRow.appendChild(actionsCell);
+  
+      table.appendChild(newRow);
+    }
+  </script>  
+</body>
+</html>

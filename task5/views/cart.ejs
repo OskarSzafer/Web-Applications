@@ -1,0 +1,49 @@
+<h1>Your Shopping Cart</h1>
+
+<% if (cart.length === 0) { %>
+  <p>Your cart is empty.</p>
+<% } else { 
+     let total = 0;
+%>
+  <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 800px;">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price (each)</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart.forEach(item => {
+           const subtotal = item.price * item.quantity;
+           total += subtotal;
+      %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.description %></td>
+          <td><%= item.quantity %></td>
+          <td>$<%= item.price.toFixed(2) %></td>
+          <td>$<%= subtotal.toFixed(2) %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
+        <td><strong>$<%= total.toFixed(2) %></strong></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <form method="POST" action="/finalize" style="margin-top: 20px;">
+    <button type="submit">Finalize Purchase</button>
+  </form>
+
+  <form method="POST" action="/cancel" style="margin-top: 10px;">
+    <button type="submit">Cancel Purchase</button>
+  </form>
+<% } %>
+
+<a href="/" style="display: inline-block; margin-top: 20px;">← Back to Store</a>

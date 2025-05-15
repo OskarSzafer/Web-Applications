@@ -1,0 +1,17 @@
+{
+  "name": "task3",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm run sass",
+    "sass": "sass --watch styles/styles.scss:styles/styles.css",
+    "dev": "nodemon app.js & npm run scss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.86.1"
+  }
+}

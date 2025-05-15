@@ -1,0 +1,16 @@
+{
+  "name": "task1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run sass",
+    "sass": "sass --watch sass:css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.85.1"
+  }
+}

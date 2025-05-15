@@ -1,0 +1,8 @@
+table tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/*# sourceMappingURL=styles.css.map */

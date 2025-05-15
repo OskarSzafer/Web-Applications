@@ -1,0 +1,11 @@
+table {
+    // Select every odd row (1st, 3rd, 5th, etc.) - leaves them default color
+    tbody tr:nth-child(odd) {
+      background-color: transparent;
+    }
+    
+    // Select every even row (2nd, 4th, 6th, etc.) - colors them gray
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  }
