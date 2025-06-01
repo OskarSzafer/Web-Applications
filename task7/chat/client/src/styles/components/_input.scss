@@ -1,0 +1,35 @@
+@use '../variables' as vars;
+@use 'sass:color';
+
+form {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+
+  input[type='text'] {
+    flex: 1;
+    padding: 8px;
+    background-color: vars.$secondary-color;
+    color: vars.$text-color;
+    border: 1px solid color.adjust(vars.$secondary-color, $lightness: -5%);
+    border-radius: vars.$border-radius;
+
+    &:focus {
+      border-color: vars.$primary-color;
+      outline: none;
+    }
+  }
+
+  input[type='submit'] {
+    padding: 8px 12px;
+    background-color: vars.$primary-color;
+    color: white;
+    border: none;
+    border-radius: vars.$border-radius;
+    cursor: pointer;
+
+    &:hover {
+      background-color: color.adjust(vars.$primary-color, $lightness: -15%);
+    }
+  }
+}
